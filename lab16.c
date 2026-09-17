@@ -1,74 +1,76 @@
-#include<stdio.h>
-struct employee{
-  int id;
-  char name[50];
-  float salary;
-  char department[50];
-};
-void inputemployee(struct employee *e)
-{
-  printf("enter emp id:");
-  scanf("%d",&e->id);
-  printf("enter emp name:");
-  scanf("%49s",e->name);
-  printf("enter emp salary:");
-  scanf("%f",&e->salary);
-  printf("enter emp department:");
-  scanf("%49s",e->department);
-  printf("\n employee details entered successfully\n");
-      }
-  void displayemployee(struct employee e)
-      {
-      printf("\n===employee details===\n");
-      printf("emp id:%d\n",e.id);
-      printf("name:%s\n",e.name);
-      printf("salary:%f\n",e.salary);
-      printf("department:%s\n",e.department);
-      }
-      void updateemployee(struct employee *e)
-      {
-        printf("\n===update employee details===\n");
-        printf("enter new employee id:");
-        scanf("%d",&e->id);
-        printf("enter new emp name:");
-        scanf("%49s",e->name);
-        printf("enter new salary:");
-        scanf("%f",&e->salary);
-        printf("enter new department:");
-        scanf("%s",e->department);
-        printf("\nempolyee details updated successfully\n");
-       }
-
-int main()
-{
-  struct employee emp;
-  int c;
-  do{
-  printf("\n====employee management system===\n");
-  printf("1.input employee details\n");
-  printf("2.display\n");
-  printf("3.update\n");
-  printf("4.exit\n");
-  printf("enter your choice:");
-  scanf("%d",&c);
-  switch(c)
-  {
-    case 1:
-      inputemployee(&emp);
-      break;
-    case 2:
-      displayemployee(emp);
-      break;
-    case 3:
-      updateemployee(&emp);
-      break;
-    case 4:
-      printf("\nexit ");
-      break;
-    default:
-      printf("\ninvalid choice\n");
+ #include<stdio.h>
+  struct student{
+    char name[20];
+    int id;
+    float salary;
+    char department[20];
+  }stud[10];
+  int i=0;
+  void input(){
+    printf("Enter name:\n");
+ scanf("%s",stud[i].name);
+printf("Enter id:\n");
+  scanf("%d",&stud[i].id);
+   printf("Enter salary:\n");
+  scanf("%f",&stud[i].salary);
+printf("Enter department:\n");
+    scanf("%s",stud[i].department);
+    i++;
   }
+  void display(){
+    printf("Name\t\t\tId\t\t\tSalary\t\t\tDepartment\n");
+    for(int j=0;j<i;j++){
+  
+      printf("%s\t\t\t%d\t\t\t%0.2f\t\t\t%s\n",stud[j].name,stud[j].id,stud[j].salary,stud[j].department);
+    }
   }
-  while(c!=4);
-  return 0;
-}
+  void update(){
+    int id,j,found=0;
+    printf("enter the id :\n");
+    scanf("%d",&id);
+    for(j=0;j<=i;j++){
+      if(stud[j].id == id){
+        printf("enter name:");
+        scanf("%s",stud[j].name);
+        printf("Enter id:\n");
+        scanf("%d",&stud[j].id);
+        printf("Enter salary:\n");
+        scanf("%f",&stud[j].salary);
+        printf("Enter department:\n");
+        scanf("%s",stud[j].department);
+        int found=1;
+      return;
+        }
+    }
+    if(found==0){
+            printf("Id not found\n");
+            return ;
+        }
+  
+  }
+ int main(){
+    int c;
+    do{
+      printf("1.input\n2.display\n3.update\n4.exit\n");
+      scanf("%d",&c);
+      switch(c){
+        case 1:
+          input();
+          break;
+        case 2:
+          display();
+          break;
+        case 3:
+          update();
+          break;
+        case 4:
+          printf("exit\n");
+          break;
+        default:
+          printf("invalid\n");
+          break;
+      }
+    }while(c!=4);
+    return 0;
+  }
+      

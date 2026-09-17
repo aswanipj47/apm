@@ -1,46 +1,24 @@
 #include<stdio.h>
-int main()
-{
-  int n,num,i,j;
-  int prime[100],count=0;
-  int isprime;
-  printf("enter the number of elements");
-  scanf("%d",&n);
-  printf("enter %d number :\n",n);
-  for(i=0;i<n;i++)
-  {
-    scanf("%d",&num);
-    isprime=1;
-      if(num<=1)
-      {
-        isprime=0;
-      }
-      else
-      {
-        for(j=2;j<=num/2;j++)
-        {
-          if(num%j==0)
-          {
-            isprime=0;
-              break;
-          }
-        }
-      }
-    if(isprime)
-    {
-      prime[count]=num;
-      count++;
-    }
+  int main(){
+    int i,n=0,nums[10],prm[10];
+     int k=0;
+     printf("Enter the noof elements:");
+    scanf("%d",&n);
+    printf("Enter the numbers");
+      while(i<n){
+        scanf("%d",&nums[i]);
+      int num=nums[i];
+         int c=0;
+          for(int j=2;j<=num/2;j++){
+            if(num%j==0){
+              c++;
+              break;}}
+          if(c==0 && num!=1)
+            prm[k++]=num;
+          i++;}
+    for(i=0;i<k;i++)
+          printf("%d-prime\n",prm[i]);
+    return 0;
   }
-  printf("prime numbers are:");
-  for(i=0;i<count;i++)
-  {
-    printf("%d\n",prime[i]);
-  }
-  printf("\n");
-  return 0;
-}
-
-
-
+  
 

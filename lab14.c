@@ -1,3 +1,20 @@
+/*
+Name     : Aswani P J
+Roll No  : CS07
+Date     : 11-09-2026
+Expt. No : 14
+Heading  : Recursion-Based Sentence Reversal for Voice Transcription
+Aim      : Write a program that reverses the words of a sentence, using recursion. This could be applied in a speech-to-text application where the order of words needs to be reversed for analysis.
+Algorithm :
+  Step 1 : Start.
+  Step 2 : Read a sentence using fgets and remove trailing newline.
+  Step 3 : Call reversewords(str,0,0):
+             - Find end of current word (space or '\0').
+             - Recursively call for next word if space found.
+             - On return, print current word.
+  Step 4 : Stop.
+Source Code : Given below.
+*/
 #include<stdio.h>
 void reversewords(char str[],int start,int end)
 {
@@ -30,4 +47,8 @@ int main()
   printf("\n");
   return 0;
 }
-
+/*
+Sample Output :
+enter a sentence:hello world from C
+reversed word order:C from world hello
+*/
